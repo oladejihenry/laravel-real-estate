@@ -13,10 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Front End Route
+Route::get('/', 'MainController@index')->name('main');
 
 Auth::routes();
 
+
+//Search Admin Users
+Route::get('/searchadmin', 'Admin\DashboardController@searchadmin')->name('searchadmin');
+
+//Search Admin Posts
+Route::get('/searchpost', 'Admin\DashboardController@searchpost')->name('searchpost');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin', 'AdminController@index')->name('admin');
