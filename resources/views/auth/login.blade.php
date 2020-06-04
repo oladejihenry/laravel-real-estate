@@ -35,16 +35,17 @@
            
                 <div class="form">
                   <form method="POST" class="login-form" action="{{ route('login') }}">
-                    @csrf
-                    <input type="text" name="email" placeholder="Username Or Email" required autocomplete="email" autofocus/>
-                    <input type="password" name="password" placeholder="Password" required autocomplete="current-password"/>
-                    <button>Login</button>
-                    @if (Route::has('password.request'))
-                                    <p class="message"><a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a></p>
-                                @endif 
-                    <p class="message"><a href="/">Go back to homepage</a></p> 
+                        @csrf
+                        <input type="text" name="email" placeholder="Username Or Email" required autocomplete="email" autofocus/>
+                        <input type="password" name="password" placeholder="Password" required autocomplete="current-password"/>
+                        <button>Login</button>
+                        @if (Route::has('password.request'))
+                                        <p class="message"><a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a></p>
+                                    @endif
+                        <p class="message"><a href="/register">Click Here To Register?</a></p>  
+                        <p class="message"><a href="/">Go back to homepage</a></p> 
                   </form>
                 </div>
               </div>
