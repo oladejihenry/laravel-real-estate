@@ -25,6 +25,6 @@ Route::get('/searchadmin', 'Admin\DashboardController@searchadmin')->name('searc
 //Search Admin Posts
 Route::get('/searchpost', 'Admin\DashboardController@searchpost')->name('searchpost');
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'AdminController@index')->name('admin');
