@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateApartmanetsTypeTable extends Migration
+class CreateApartmentsLocationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateApartmanetsTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartmanets_type', function (Blueprint $table) {
+        Schema::create('apartments_location', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
+            $table->string('city');
+            $table->string('state');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateApartmanetsTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartmanets_type');
+        Schema::dropIfExists('apartmanets_location');
     }
 }
