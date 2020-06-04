@@ -35,6 +35,6 @@ class CreateApartmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartmanets');
+        Schema::dropIfExists('apartments');
     }
 }

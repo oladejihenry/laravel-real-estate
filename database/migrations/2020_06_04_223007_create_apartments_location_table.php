@@ -28,6 +28,6 @@ class CreateApartmentsLocationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartmanets_location');
+        Schema::dropIfExists('apartments_location');
     }
 }

@@ -14,7 +14,7 @@ class CreateApartmentsApartmentsTypeTable extends Migration
     public function up()
     {
         Schema::create('apartments_apartments_type', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->bigInteger('apartments_id')->unsigned();
             $table->foreign('apartments_id')->references('id')->on('apartments')->onDelete('cascade');
             $table->bigInteger('apartments_type_id')->unsigned();
@@ -30,6 +30,6 @@ class CreateApartmentsApartmentsTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartmanets_apartments_type');
+        Schema::dropIfExists('apartments_apartments_type');
     }
 }

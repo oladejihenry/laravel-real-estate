@@ -19,9 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('admin')->nullable();
-            $table->string('landlord')->default('landlord');
-            $table->string('tenant')->default('tenant');
-            $table->string('agent')->default('agent');
+            $table->string('landlord')->nullable();
+            $table->string('tenant')->nullable();
+            $table->string('agent')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

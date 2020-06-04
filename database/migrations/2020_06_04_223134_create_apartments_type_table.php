@@ -13,7 +13,7 @@ class CreateApartmentsTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('apartmentstype', function (Blueprint $table) {
+        Schema::create('apartments_type', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('slug');
@@ -28,6 +28,6 @@ class CreateApartmentsTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apartmanets_type');
+        Schema::dropIfExists('apartments_type');
     }
 }
