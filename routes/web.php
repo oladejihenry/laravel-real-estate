@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Admin Pages
+
+//Apartment Type
+Route::get('/property-category', 'Admin\ApartmentTypeController@index');
+Route::post('/save-property-category', 'Admin\ApartmentTypeController@store');
+Route::get('/role-propertyedit/{id}', 'Admin\ApartmentTypeController@edit');
+Route::delete('/property-delete/{id}', 'Admin\ApartmentTypeController@destroy');
+Route::put('role-property-category-update/{id}', 'Admin\ApartmentTypeController@update');
+
 // Front End Route
 Route::get('/', 'MainController@index')->name('main');
 
@@ -27,4 +36,4 @@ Route::get('/searchpost', 'Admin\DashboardController@searchpost')->name('searchp
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/dashboard', 'AdminController@index')->name('dashboard');

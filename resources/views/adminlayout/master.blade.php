@@ -69,19 +69,19 @@
           <li class="{{ 'admin-posts' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/admin-posts">
               <i class="now-ui-icons education_atom"></i>
-              <p>All Posts</p>
+              <p>All Apartments</p>
             </a>
           </li>
           <li class="{{ 'posts-bin' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/posts-bin">
               <i class="now-ui-icons education_atom"></i>
-              <p>Posts Bin</p>
+              <p>Apartments Bin</p>
             </a>
           </li>
-          <li class="{{ 'all-category' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/all-category">
+          <li class="{{ 'property-category' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/property-category">
               <i class="now-ui-icons education_atom"></i>
-              <p>Category</p>
+              <p>Add Property Category</p>
             </a>
           </li>
           <li class="{{ 'new-tags' == request()->path() ? 'active' : ''}}">
@@ -182,7 +182,7 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      {{ Auth::user()->name }} <span class="caret" style="display:none;"></span>
+                      Welcome, {{ Auth::user()->name }} <span class="caret" style="display:none;"></span>
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
