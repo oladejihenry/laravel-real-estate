@@ -41,3 +41,6 @@ Route::get('/searchpost', 'Admin\DashboardController@searchpost')->name('searchp
 
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
+//Property Create
+Route::get('/create', 'Dashboard\AllPropertiesController@create')->name('posts.create')->middleware('auth');
+

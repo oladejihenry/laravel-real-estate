@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Property;
+use App\ApartmentType;
 
 class AllPropertiesController extends Controller
 {
@@ -16,8 +17,8 @@ class AllPropertiesController extends Controller
     public function index()
     {
         $title = 'All Properties';
-        $properties = Property::latest()->paginate(15);
-        return view('dashboard.all-properties', compact('title'))->with('properties', $properties);
+        $property = Property::latest()->paginate(15);
+        return view('dashboard.all-properties', compact('title'))->with('property', $property);
     }
 
     /**
@@ -27,7 +28,9 @@ class AllPropertiesController extends Controller
      */
     public function create()
     {
-        //
+        $apartmenttype = ApartmentType::all();
+        $title = "Create New Property";
+        return view('dashboard.create', compact('title'))->with('apartmenttype', $apartmenttype);
     }
 
     /**

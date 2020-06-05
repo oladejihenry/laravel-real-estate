@@ -1,32 +1,33 @@
+  
 @extends('adminlayout.master')
 
+
+@section('title')
+	All Posts | MonstaJamss
+@endsection
+
+
+
 @section('content')
+
+<?php 
+$id = '1';
+$sum = DB::table('apartments')->count();
+?>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add Property Type</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Add Property</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="/save-property-category" method="POST">
-      		{{ csrf_field() }}
-	      <div class="modal-body">
-	          <div class="form-group">
-	            <label for="recipient-name" class="col-form-label">Name:</label>
-	            <input type="text" name="name" class="form-control" id="recipient-name">
-	          </div>
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="submit" class="btn btn-primary">Submit</button>
-	      </div>
-      </form>
+      
     </div>
   </div>
 </div>
-
 
 
 
@@ -34,32 +35,37 @@
   	<div class="col-md-12">
 		<div class="card">
 		  <div class="card-header">
-		    <h4 class="card-title"> All Property Type
-				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">ADD</button>	
+		    <h4 class="card-title"> All Properties ( {{$sum}} )
+				<a href="{{route('posts.create')}}" class="btn btn-success float-right">Add Post</a>
 		    </h4>
 		  </div>
 		  	<div class="card-body">
 			    <div class="table-responsive">
 			      <table class="table">
 			        <thead class=" text-primary">
-			          <th>ID</th>
-			          <th>name</th>
+			          <th>Title</th>
+					  <th>Categories</th>
+					  <th>Date</th>
+			          <th>Author</th>
 			          <th>Edit</th>
-			          <th>Delete</th>
+			          <th>Bin</th>
 			        </thead>
 			        <tbody>
-			        	@foreach ($properties as $row)
+			        	@foreach ($property as $properties)
 			          <tr>
-			            <td>{{ $row->id }}</td>
-			            <td>{{ $row->name }}</td>
+			            <td><a href="{{ route('posts.show',$properties->slug) }}" target="_blank">{{ $properties->subject }}</a></td>
+						<td>{{ $properties->categories()->first()->name }}</td>
+						<td>{{ $properties->created_at->format('m/d/Y') }}</td>
+			            <td>{{$properties->user->username}}</td>
+
 			            <td>
-			            	<a href="/role-propertyedit/{{ $row->id }}" class="btn btn-success">Edit</a>
+			            	<a href="/admin-edit/{{ $properties->id }}" class="btn btn-success">Edit</a>
 			            </td>
 			            <td>
-			            	<form action="/property-delete/{{ $row->id }}" method="post">
+			            	<form action="/adminpost-delete/{{ $properties->id }}" method="post">
 			        			{{ csrf_field() }}
 			        			{{ method_field('DELETE') }}
-			            		<button type="submit" class="btn btn-danger">Delete</button>
+			            		<button type="submit" class="btn btn-danger">Bin</button>
 			            	</form>
 			            </td>
 			          </tr>
@@ -71,10 +77,17 @@
 		</div>
 		<nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-				{{ $properties->onEachSide(1)->links() }} 
+				{{ $property->onEachSide(1)->links() }} 
 			</ul>
 		</nav>
   	</div>         
 </div>
+
+
+  
+@endsection
+
+
+@section('scripts')
 
 @endsection
