@@ -22,9 +22,9 @@ class AdminController extends Controller
     {
         // $role = Role::create(['name' => 'tenant']);
         // $permission = Permission::create(['name' => 'buy property']);
-         $role = Role::findById(3);
-         $permission = Permission::findById(3);
-         $role->givePermissionTo($permission);
+         // $role = Role::findById(3);
+         // $permission = Permission::findById(3);
+         // $role->givePermissionTo($permission);
         $title = 'Real Estate';
         return view ('adminlayout.master', compact('title'));
     }
@@ -34,9 +34,9 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(User $user)
     {
-        //
+       //
     }
 
     /**

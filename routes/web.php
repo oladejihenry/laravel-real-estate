@@ -15,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 //Admin Pages
 
+//All Properties
+Route::get('/all-properties', 'Dashboard\AllPropertiesController@index');
+
 //Apartment Type
-Route::get('/property-category', 'Admin\ApartmentTypeController@index');
-Route::post('/save-property-category', 'Admin\ApartmentTypeController@store');
-Route::get('/role-propertyedit/{id}', 'Admin\ApartmentTypeController@edit');
-Route::delete('/property-delete/{id}', 'Admin\ApartmentTypeController@destroy');
-Route::put('role-property-category-update/{id}', 'Admin\ApartmentTypeController@update');
+Route::get('/property-category', 'Dashboard\ApartmentTypeController@index')->middleware('role:landlord');
+Route::post('/save-property-category', 'Dashboard\ApartmentTypeController@store');
+Route::get('/role-propertyedit/{id}', 'Dashboard\ApartmentTypeController@edit');
+Route::delete('/property-delete/{id}', 'Dashboard\ApartmentTypeController@destroy');
+Route::put('role-property-category-update/{id}', 'Dashboard\ApartmentTypeController@update');
 
 // Front End Route
 Route::get('/', 'MainController@index')->name('main');

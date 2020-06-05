@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\ApartmentType;
+use App\Property;
 
-class ApartmentTypeController extends Controller
+class AllPropertiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,19 @@ class ApartmentTypeController extends Controller
      */
     public function index()
     {
-        $title = 'Apartments Type';
-        $apartmenttype = ApartmentType::latest()->paginate(15);
-        return view('admin.property-category', compact('title'))->with('apartmenttype',$apartmenttype);
+        $title = 'All Properties';
+        $properties = Property::latest()->paginate(15);
+        return view('dashboard.all-properties', compact('title'))->with('properties', $properties);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
     /**
@@ -28,11 +38,7 @@ class ApartmentTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $apartmenttype = new ApartmentType;
-        $apartmenttype->name = $request->input('name');
-
-        $apartmenttype->save();
-        return redirect('/property-category');
+        //
     }
 
     /**
@@ -54,9 +60,7 @@ class ApartmentTypeController extends Controller
      */
     public function edit($id)
     {
-        $apartmenttype = ApartmentType::findorFail($id);
-        $title = "Edit Property Type";
-        return view('admin.property-edit', compact('title'))->with('apartmenttype',$apartmenttype);
+        //
     }
 
     /**
@@ -68,11 +72,7 @@ class ApartmentTypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $apartmenttype = ApartmentType::find($id);
-        $apartmenttype->name = $request->input('name');
-        $apartmenttype->update();
-
-        return redirect('/property-category')->with('status', 'Updated');
+        //
     }
 
     /**
@@ -83,9 +83,6 @@ class ApartmentTypeController extends Controller
      */
     public function destroy($id)
     {
-        $apartmenttype = ApartmentType::findorFail($id);
-        $apartmenttype->delete();
-
-        return redirect('/property-category')->with('status', 'Deleted');
+        //
     }
 }

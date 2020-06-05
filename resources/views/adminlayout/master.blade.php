@@ -66,24 +66,28 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="{{ 'admin-posts' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/admin-posts">
+          
+          <li class="{{ 'all-properties' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/all-properties">
               <i class="now-ui-icons education_atom"></i>
-              <p>All Apartments</p>
+              <p>All Properties</p>
             </a>
           </li>
+          
           <li class="{{ 'posts-bin' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/posts-bin">
               <i class="now-ui-icons education_atom"></i>
               <p>Apartments Bin</p>
             </a>
           </li>
+          @role('landlord')
           <li class="{{ 'property-category' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/property-category">
               <i class="now-ui-icons education_atom"></i>
               <p>Add Property Category</p>
             </a>
           </li>
+          @endrole
           <li class="{{ 'new-tags' == request()->path() ? 'active' : ''}}">
             <a href="/new-tags">
               <i class="now-ui-icons ui-1_bell-53"></i>

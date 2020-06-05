@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use App\ApartmentType;
 
-class MainController extends Controller
+class ApartmentTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +15,9 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view ('pages.welcome');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $title = 'Apartments Type';
+        $apartmenttype = ApartmentType::latest()->paginate(15);
+        return view('dashboard.property-category', compact('title'))->with('apartmenttype',$apartmenttype);
     }
 
     /**
@@ -36,7 +28,11 @@ class MainController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $apartmenttype = new ApartmentType;
+        $apartmenttype->name = $request->input('name');
+
+        $apartmenttype->save();
+        return redirect('/property-category');
     }
 
     /**
@@ -58,7 +54,9 @@ class MainController extends Controller
      */
     public function edit($id)
     {
-        //
+        $apartmenttype = ApartmentType::findorFail($id);
+        $title = "Edit Property Type";
+        return view('dashboard.property-edit', compact('title'))->with('apartmenttype',$apartmenttype);
     }
 
     /**
@@ -70,7 +68,11 @@ class MainController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $apartmenttype = ApartmentType::find($id);
+        $apartmenttype->name = $request->input('name');
+        $apartmenttype->update();
+
+        return redirect('/property-category')->with('status', 'Updated');
     }
 
     /**
@@ -81,6 +83,9 @@ class MainController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $apartmenttype = ApartmentType::findorFail($id);
+        $apartmenttype->delete();
+
+        return redirect('/property-category')->with('status', 'Deleted');
     }
 }
