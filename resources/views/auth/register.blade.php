@@ -41,9 +41,11 @@
                     <input type="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email Address"/>
                     <select name="usertype">
                       <option>Select Usertype</option>
+                     
                       <option value="1">Landlord</option>
                       <option value="2">Agent</option>
                       <option value="3">Tenant</option>
+                      
                     </select>
                     <input type="password" name="password" required autocomplete="new-password" placeholder="Password"/>
                     <input type="password" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"/>

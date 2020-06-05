@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class MainController extends Controller
 {
@@ -80,5 +82,11 @@ class MainController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showform()
+    {
+        $roles = Role::where('name', '!=', 'admin')->get();
+        return view('auth.register', compact('roles'));
     }
 }

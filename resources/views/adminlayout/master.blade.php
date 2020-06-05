@@ -60,8 +60,8 @@
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{ 'pub' == request()->path() ? 'active' : ''}}">
-            <a href="/admin">
+          <li class="{{ 'dashboard' == request()->path() ? 'active' : ''}}">
+            <a href="/dashboard">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>

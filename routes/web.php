@@ -37,3 +37,4 @@ Route::get('/searchpost', 'Admin\DashboardController@searchpost')->name('searchp
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'AdminController@index')->name('dashboard');
+

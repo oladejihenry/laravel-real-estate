@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
@@ -18,6 +20,11 @@ class AdminController extends Controller
      */
     public function index()
     {
+        // $role = Role::create(['name' => 'tenant']);
+        // $permission = Permission::create(['name' => 'buy property']);
+         $role = Role::findById(3);
+         $permission = Permission::findById(3);
+         $role->givePermissionTo($permission);
         $title = 'Real Estate';
         return view ('adminlayout.master', compact('title'));
     }
