@@ -17,13 +17,19 @@ use Illuminate\Support\Facades\Route;
 
 //All Properties
 Route::get('/all-properties', 'Dashboard\AllPropertiesController@index');
+Route::post('/adminsave-property', 'Dashboard\AllPropertiesController@store');
+Route::get('/admin-editproperty/{id}', 'Dashboard\AllPropertiesController@edit');
 
 //Apartment Type
-Route::get('/property-category', 'Dashboard\ApartmentTypeController@index')->middleware('role:landlord');
-Route::post('/save-property-category', 'Dashboard\ApartmentTypeController@store');
-Route::get('/role-propertyedit/{id}', 'Dashboard\ApartmentTypeController@edit');
-Route::delete('/property-delete/{id}', 'Dashboard\ApartmentTypeController@destroy');
-Route::put('role-property-category-update/{id}', 'Dashboard\ApartmentTypeController@update');
+Route::get('/property-category', 'Dashboard\CategoryController@index')->middleware('role:landlord');
+Route::post('/save-property-category', 'Dashboard\CategoryController@store');
+Route::get('/role-propertyedit/{id}', 'Dashboard\CategoryController@edit');
+Route::delete('/property-delete/{id}', 'Dashboard\CategoryController@destroy');
+Route::put('role-property-category-update/{id}', 'Dashboard\CategoryController@update');
+
+//Property Location
+Route::get('property-location', 'Dashboard\PropertyLocationController@index');
+Route::post('/save-location', 'Dashboard\PropertyLocationController@store');
 
 // Front End Route
 Route::get('/', 'MainController@index')->name('main');
@@ -43,4 +49,7 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 
 //Property Create
 Route::get('/create', 'Dashboard\AllPropertiesController@create')->name('posts.create')->middleware('auth');
+
+//Show Posts
+Route::get('/{post}', 'AllPropertiesController@show')->name('posts.show');
 

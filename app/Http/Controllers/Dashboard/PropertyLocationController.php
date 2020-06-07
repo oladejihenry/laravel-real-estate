@@ -4,25 +4,20 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Property;
-use App\Category;
-use App\User;
 use App\Location;
 
-class AllPropertiesController extends Controller
+class PropertyLocationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
-        $title = 'All Properties';
-        $property = Property::where('user_id',$user->id)->latest()->paginate(15);
-        $apartmenttypes = Category::all();
-        $location = Location::all();
-        return view('dashboard.all-properties', compact('title','property'))->with('property', $property, 'apartmenttypes', $apartmenttypes, 'location', $location);
+        $title = 'Property Location';
+        $location = Location::latest()->paginate(15);
+        return view('dashboard.property-location', compact('title'))->with('location', $location);
     }
 
     /**
@@ -32,10 +27,7 @@ class AllPropertiesController extends Controller
      */
     public function create()
     {
-        $apartmenttype = Category::all();
-        $location = Location::all();
-        $title = "Create New Property";
-        return view('dashboard.create', compact('title'))->with(['apartmenttype'=>$apartmenttype,'location'=>$location]);
+        //
     }
 
     /**
@@ -46,19 +38,12 @@ class AllPropertiesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'title'=>'required|min:10',
-            'description' => 'required|min:20',
-            'apartmenttype' => 'required'
+        $location = new Location;
+        $location->city = $request->input('city');
+        $location->state = $request->input('state');
 
-        ]);
-
-        $post=auth()->user()->property()->create($request->all());
-        $post->apartmenttype()->attach($request->apartmenttype);
-        $post->location()->attach($request->location);
-        
-
-        return redirect('/all-properties')->with('success', 'Updated');
+        $location->save();
+        return redirect('/property-location');
     }
 
     /**
@@ -80,8 +65,7 @@ class AllPropertiesController extends Controller
      */
     public function edit($id)
     {
-        $property = Property::findorFail($id);
-        return view('dashboard.all-property-edit')->with('post',$post);
+        //
     }
 
     /**

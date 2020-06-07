@@ -80,6 +80,12 @@
               <p>Apartments Bin</p>
             </a>
           </li>
+          <li class="{{ 'property-location' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/property-location">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Properties Location</p>
+            </a>
+          </li>
           @role('landlord')
           <li class="{{ 'property-category' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/property-category">

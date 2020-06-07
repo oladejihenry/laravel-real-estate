@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Property;
+use App\User;
 
-class ApartmentType extends Model
+class Category extends Model
 {
-
     protected $guarded=[];
 
 

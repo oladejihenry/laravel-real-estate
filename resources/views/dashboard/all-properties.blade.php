@@ -12,7 +12,7 @@
 
 <?php 
 $id = '1';
-$sum = DB::table('apartments')->count();
+$sum = DB::table('properties')->count();
 ?>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -44,22 +44,24 @@ $sum = DB::table('apartments')->count();
 			      <table class="table">
 			        <thead class=" text-primary">
 			          <th>Title</th>
-					  <th>Categories</th>
+					  <th>Property Type</th>
 					  <th>Date</th>
-			          <th>Author</th>
+			          <th>Username</th>
+			          <th>Property Location</th>
 			          <th>Edit</th>
 			          <th>Bin</th>
 			        </thead>
 			        <tbody>
 			        	@foreach ($property as $properties)
 			          <tr>
-			            <td><a href="{{ route('posts.show',$properties->slug) }}" target="_blank">{{ $properties->subject }}</a></td>
-						<td>{{ $properties->categories()->first()->name }}</td>
+			            <td><a href="{{ route('posts.show',$properties->slug) }}" target="_blank">{{ $properties->title }}</a></td>
+						<td>{{ $properties->apartmenttype()->first()->name }}</td>
 						<td>{{ $properties->created_at->format('m/d/Y') }}</td>
 			            <td>{{$properties->user->username}}</td>
+			            <td>{{ $properties->location()->first()->city }}</td>
 
 			            <td>
-			            	<a href="/admin-edit/{{ $properties->id }}" class="btn btn-success">Edit</a>
+			            	<a href="/admin-editproperty/{{ $properties->id }}" class="btn btn-success">Edit</a>
 			            </td>
 			            <td>
 			            	<form action="/adminpost-delete/{{ $properties->id }}" method="post">

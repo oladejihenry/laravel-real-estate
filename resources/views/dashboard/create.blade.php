@@ -19,13 +19,13 @@
 				<div class="card-body">
 					<div class="row">
 						<div class="col-md-12">
-                    <form action="/adminsave-post" method="POST" enctype="multipart/form-data">
+                    <form action="/adminsave-property" method="POST" enctype="multipart/form-data">
       		{{ csrf_field() }}
 	      <div class="modal-body">
 	        
 	          <div class="form-group">
 	            <label for="recipient-name" class="col-form-label"><b>Title:</b></label>
-	            <input type="text" name="subject" class="form-control" id="recipient-name">
+	            <input type="text" name="title" class="form-control" id="recipient-name">
 	          </div>
 	          <br>
 	          <div class="form-group">
@@ -43,13 +43,10 @@
 	          	<label for="recipient-name" class="col-form-label"><b>Location:</b></label>
 	          	<br>
 	          	<select class="form-control" id="location" name="location[]" id="main-tags" multiple="multiple" style="width:223.438px;">
-  					
-              		<option value="Oyo">Oyo</option>
-              		<option value="Lagos">Lagos</option>
-              		<option value="Abuja">Abuja</option>
-              		<option value="Kano">Kano</option>
-              		<option value="Abeokuta">Abeokuta</option>
+  					@foreach($location as $locations)
+              		<option value="{{$locations->id}}">{{$locations->city}}</option>
               		...
+              		@endforeach
              		
 				</select> <b style="color:red;">Note: Please Select Only (One) Location.</b>
 	          </div>
@@ -57,7 +54,7 @@
 	          <br>
 	          <div class="form-group">
 					<label><b>Description:</b></label>
-					<textarea type="text" name="body" value="" class="editor"></textarea>
+					<textarea type="text" name="description" value="" class="editor"></textarea>
 					   <script>
 	ClassicEditor
 		.create( document.querySelector( '.editor' ) ,{
@@ -110,11 +107,13 @@
 	          <div>
 				  <label><b>Select Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
                   <br>
-				  <input type="file" name="image">
+				  <input type="file" name="first_image">
                   <br>
-				  <input type="file" name="image_2">
+				  <input type="file" name="second_image">
                   <br>
-				  <input type="file" name="image_3">
+				  <input type="file" name="third_image">
+				  <br>
+				  <input type="file" name="fourth_image">
 			</div>
 	      </div>
 	      <div class="modal-footer">
