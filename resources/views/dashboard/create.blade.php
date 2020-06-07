@@ -24,7 +24,7 @@
 	      <div class="modal-body">
 	        
 	          <div class="form-group">
-	            <label for="recipient-name" class="col-form-label"><b>Subject:</b></label>
+	            <label for="recipient-name" class="col-form-label"><b>Title:</b></label>
 	            <input type="text" name="subject" class="form-control" id="recipient-name">
 	          </div>
 	          <br>
@@ -36,12 +36,27 @@
               		<option value="{{$apartmenttypes->id}}">{{$apartmenttypes->name}}</option>
               		...
              		@endforeach
-				</select>
+				</select> <b style="color:red;">Note: Please Select Only (One) Property Type.</b>
+	          </div>
+	          <br>
+	          <div class="form-group">
+	          	<label for="recipient-name" class="col-form-label"><b>Location:</b></label>
+	          	<br>
+	          	<select class="form-control" id="location" name="location[]" id="main-tags" multiple="multiple" style="width:223.438px;">
+  					
+              		<option value="Oyo">Oyo</option>
+              		<option value="Lagos">Lagos</option>
+              		<option value="Abuja">Abuja</option>
+              		<option value="Kano">Kano</option>
+              		<option value="Abeokuta">Abeokuta</option>
+              		...
+             		
+				</select> <b style="color:red;">Note: Please Select Only (One) Location.</b>
 	          </div>
 	          <br>
 	          <br>
 	          <div class="form-group">
-					<label><b>Body:</b></label>
+					<label><b>Description:</b></label>
 					<textarea type="text" name="body" value="" class="editor"></textarea>
 					   <script>
 	ClassicEditor
@@ -79,6 +94,12 @@
 								
 				</div>
 				<br>
+				<div>
+				  <label><b>Price:</b></label>
+                  <br>
+				  <input type="text" name="price" value="0.00">
+			</div>
+				<br>
 			  <div>
 				  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
                   <br>
@@ -114,6 +135,7 @@
 <script>
   $(document).ready(function() {
     $('#apartmenttype').select2();
+    $('#location').select2();
 });
 </script>
 
