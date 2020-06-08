@@ -60,7 +60,7 @@ $sum = DB::table('properties')->count();
 						<td>{{ $properties->created_at->format('m/d/Y') }}</td>
 			            <td>{{$properties->user->username}}</td>
 			            <td>{{ $properties->location()->first()->city }}</td>
-			            <td>{{$properties->price}}</td>
+			            <td>{{number_format($properties->price, 2, '.', ',')}}</td>
 
 			            <td>
 			            	@if(Auth()->check())
