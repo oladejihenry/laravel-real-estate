@@ -8,6 +8,8 @@ use App\Property;
 use App\Category;
 use App\User;
 use App\Location;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
 
 class AllPropertiesController extends Controller
 {
@@ -16,13 +18,13 @@ class AllPropertiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
         $title = 'All Properties';
-        $property = Property::where('user_id',$user->id)->latest()->paginate(15);
+        $property = Auth::user()->property()->latest()->paginate(15); 
         $apartmenttypes = Category::all();
         $location = Location::all();
-        return view('dashboard.all-properties', compact('title','property'))->with('property', $property, 'apartmenttypes', $apartmenttypes, 'location', $location);
+        return view('dashboard.all-properties', ['title'=>$title,'property' => $property, 'apartmenttypes' => $apartmenttypes, 'location' => $location]);
     }
 
     /**
@@ -80,8 +82,23 @@ class AllPropertiesController extends Controller
      */
     public function edit($id)
     {
-        $property = Property::findorFail($id);
-        return view('dashboard.all-property-edit')->with('post',$post);
+        if (Auth::user()->id == Property::find($id)->user->id)
+        {
+
+            $property = Property::findorFail($id);
+            $title = "Edit Property Post";
+            return view('dashboard.all-property-edit', compact('property', 'title'));
+
+        }
+
+        else
+
+        {
+
+            return redirect('/all-properties');
+
+        }
+        
     }
 
     /**

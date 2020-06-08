@@ -21,6 +21,11 @@ class Property extends Model
         return $this->belongsTo(User::class);
     } 
 
+    public function isTheOwner($user)
+    {
+        return $this->user_id === $user->id;
+    }
+
     public function apartmenttype()
     {
         return $this->belongsToMany(Category::class, 'categories_properties');

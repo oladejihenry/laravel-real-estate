@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Admin Pages
 
 //All Properties
-Route::get('/all-properties', 'Dashboard\AllPropertiesController@index');
+Route::get('/all-properties', 'Dashboard\AllPropertiesController@index')->middleware('auth');
 Route::post('/adminsave-property', 'Dashboard\AllPropertiesController@store');
 Route::get('/admin-editproperty/{id}', 'Dashboard\AllPropertiesController@edit');
 

@@ -61,7 +61,11 @@ $sum = DB::table('properties')->count();
 			            <td>{{ $properties->location()->first()->city }}</td>
 
 			            <td>
+			            	@if(Auth()->check())
+                			@if(auth()->user()->id == $properties->user_id)
 			            	<a href="/admin-editproperty/{{ $properties->id }}" class="btn btn-success">Edit</a>
+			            	@endif
+			            	@endif
 			            </td>
 			            <td>
 			            	<form action="/adminpost-delete/{{ $properties->id }}" method="post">
