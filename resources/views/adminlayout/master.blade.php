@@ -25,6 +25,7 @@
   <!-- CSS Files -->
 
    <link href="{{asset('assets/css/select2/select2.min.css')}}" rel="stylesheet" /> 
+   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/text-editor.css')}}">
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.3.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
@@ -49,7 +50,7 @@
     <div class="sidebar" data-color="red">
       <!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
       <div class="logo">
-        <a href="/pub" class="simple-text logo-normal">
+        <a href="/dashboard" class="simple-text logo-normal">
           Real Estate Admin Panel
         </a>
       </div>
@@ -67,28 +68,28 @@
             </a>
           </li>
           
-          <li class="{{ 'all-properties' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/all-properties">
+          <li class="{{ 'dashboard/all-properties' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/dashboard/all-properties">
               <i class="now-ui-icons education_atom"></i>
               <p>All Properties</p>
             </a>
           </li>
           
-          <li class="{{ 'posts-bin' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/posts-bin">
+          <li class="{{ 'dashboard/properties-bin' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/dashboard/properties-bin">
               <i class="now-ui-icons education_atom"></i>
-              <p>Apartments Bin</p>
+              <p>Properties Bin</p>
             </a>
           </li>
-          <li class="{{ 'property-location' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/property-location">
+          <li class="{{ 'dashboard/property-location' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/dashboard/property-location">
               <i class="now-ui-icons education_atom"></i>
               <p>Properties Location</p>
             </a>
           </li>
           @role('landlord')
-          <li class="{{ 'property-category' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/property-category">
+          <li class="{{ 'dashboard/property-category' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/dashboard/property-category">
               <i class="now-ui-icons education_atom"></i>
               <p>Add Property Category</p>
             </a>
@@ -192,7 +193,7 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                      Welcome, {{ Auth::user()->name }} <span class="caret" style="display:none;"></span>
+                      Welcome, {{ Auth::user()->username }} <span class="caret" style="display:none;"></span>
                   </a>
 
                   <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -232,8 +233,6 @@
       <div class="content">
 
         @yield('content')
-
-        
 
       </div>
 

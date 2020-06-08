@@ -26,7 +26,7 @@ class AdminController extends Controller
          // $permission = Permission::findById(3);
          // $role->givePermissionTo($permission);
         $title = 'Real Estate';
-        return view ('adminlayout.master', compact('title'));
+        return view ('dashboard.publisher',compact('title'));
     }
 
     /**

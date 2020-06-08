@@ -22,9 +22,10 @@ class AllPropertiesController extends Controller
     {
         $title = 'All Properties';
         $property = Auth::user()->property()->latest()->paginate(15); 
+        $allp = Property::count();
         $apartmenttypes = Category::all();
         $location = Location::all();
-        return view('dashboard.all-properties', ['title'=>$title,'property' => $property, 'apartmenttypes' => $apartmenttypes, 'location' => $location]);
+        return view('dashboard.all-properties', ['title'=>$title,'property' => $property, 'apartmenttypes' => $apartmenttypes, 'location' => $location, 'allp'=>$allp]);
     }
 
     /**
@@ -60,7 +61,7 @@ class AllPropertiesController extends Controller
         $post->location()->attach($request->location);
         
 
-        return redirect('/all-properties')->with('success', 'Updated');
+        return redirect('/dashboard/all-properties')->with('success', 'Updated');
     }
 
     /**
@@ -95,7 +96,7 @@ class AllPropertiesController extends Controller
 
         {
 
-            return redirect('/all-properties');
+            return redirect('/dashboard/all-properties');
 
         }
         
@@ -110,7 +111,15 @@ class AllPropertiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $property = Property::findorFail($id);
+
+        $property->title = $request->input('title');
+        $property->description = $request->input('description');
+        $property->price = $request->input('price');
+
+        $property->update($request->all());
+
+        return redirect('/dashboard/all-properties');
     }
 
     /**
@@ -121,6 +130,34 @@ class AllPropertiesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $property = Property::findorFail($id);
+        $property->delete();
+
+        return redirect('/dashboard/all-properties')->with('status', 'Deleted');
+    }
+
+    public function trashed()
+    {
+        $property = Property::onlyTrashed()->paginate(15);
+        $title = 'Trashed Bin';
+        return view('dashboard.properties-bin',compact('title'))->with('property', $property);
+    }
+
+    public function restore($id)
+    {
+        $property = Property::withTrashed()->where('id', $id)->first();
+
+        $property->restore();
+
+        return redirect('/dashboard/all-properties')->with('status', 'Deleted');
+    }
+
+     public function delete($id)
+    {
+        $property = Property::withTrashed()->where('id', $id)->first();
+        
+        $property->forceDelete();
+
+        return redirect('/dashboard/all-properties')->with('status', 'Deleted');
     }
 }

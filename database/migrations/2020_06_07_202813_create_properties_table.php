@@ -24,6 +24,7 @@ class CreatePropertiesTable extends Migration
             $table->string('fourth_image');
             $table->string('slug');
             $table->decimal('price',9,3);
+            $table->timestamps('deleted_at');
             $table->timestamps();
         });
     }

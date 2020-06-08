@@ -6,13 +6,17 @@ use App\User;
 use App\ApartmentType;
 use App\Category;
 use App\Location;
+
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Property extends Model
 {
 	use Sluggable;
+    use SoftDeletes;
 
+    protected $dates = ['deleted_at'];
     protected $table= 'properties';
     protected $fillable=['title','description','featured_image','first_image','second_image','third_image','fourth_image','price'];
 
