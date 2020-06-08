@@ -57,7 +57,7 @@ $sum = DB::table('properties')->count();
 			          <tr>
 			            <td><a href="{{ route('posts.show',$properties->slug) }}" target="_blank">{{ $properties->title }}</a></td>
 						<td>{{ $properties->apartmenttype()->first()->name }}</td>
-						<td>{{ $properties->created_at->format('m/d/Y') }}</td>
+						<td>Published<br>{{ $properties->created_at->format('m/d/Y') }}</td>
 			            <td>{{$properties->user->username}}</td>
 			            <td>{{ $properties->location()->first()->city }}</td>
 			            <td>{{number_format($properties->price, 2, '.', ',')}}</td>

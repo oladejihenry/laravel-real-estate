@@ -64,7 +64,7 @@ $sum = DB::table('properties')->whereNotNull('deleted_at')->count();
 			            	<form action="/adminproperties-bin/{{ $properties->id }}" method="post">
 			        			{{ csrf_field() }}
 			        			{{ method_field('DELETE') }}
-			            		<button type="submit" class="btn btn-danger">Delete</button>
+			            		<button type="submit" class="btn btn-danger">Delete Permanently</button>
 			            	</form>
 			            </td>
 			          </tr>
