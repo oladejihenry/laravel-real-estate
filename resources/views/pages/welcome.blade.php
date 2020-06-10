@@ -16,10 +16,10 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_property">
                         <div class="property_thumb">
-                            <div class="property_tag">
+                            <!-- <div class="property_tag">
                                     For Sale
-                            </div>
-                            <img src="{{ asset('/' . $properties->featured_image ) }}" alt="">
+                            </div> -->
+                            <img src="{{ asset('image/' . $properties->featured_image ) }}" alt="">
                         </div>
                         <div class="property_content">
                             <div class="main_pro">

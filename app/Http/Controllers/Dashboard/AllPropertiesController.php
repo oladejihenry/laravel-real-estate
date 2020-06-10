@@ -154,7 +154,7 @@ class AllPropertiesController extends Controller
 
         $property->restore();
 
-        return redirect('/dashboard/all-properties')->with('status', 'Deleted');
+        return redirect('/dashboard/properties-bin')->with('status', 'Deleted');
     }
 
      public function delete($id)
@@ -163,12 +163,12 @@ class AllPropertiesController extends Controller
         
         $property->forceDelete();
 
-        return redirect('/dashboard/all-properties')->with('status', 'Deleted');
+        return redirect('/dashboard/properties-bin')->with('status', 'Deleted');
     }
 
     private function storeImage($post)
     {
-        if (request()->hasFile('featured_image')){
+        if (request()->has('featured_image')){
 
             $original = request()->file('featured_image')->getClientOriginalName();
 
@@ -176,9 +176,8 @@ class AllPropertiesController extends Controller
                 'featured_image' => request()->file('featured_image')->storeAs('uploads', $original),
             ]);
 
-            $image = Image::make(request()->file('featured_image'));
-            Storage::disk('public')->put('uploads', $image->stream(), 'public');
-            
+            $image = Image::make(public_path('image/'. $post->featured_image))->resize(362, 240);
+            $image->save();
         }
     }
 }

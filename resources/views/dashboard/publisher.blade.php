@@ -35,7 +35,7 @@
         <h5 class="card-title">Total Numbers of Properties</h5>
         <br>
         <hr>
-        <p class="btn btn-primary">{{$sum}}</p>
+        <p class="btn btn-primary">{{$allp}}</p>
       </div>
     </div>
   </div>  

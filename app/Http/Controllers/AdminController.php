@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Property;
 
 class AdminController extends Controller
 {
@@ -25,8 +26,9 @@ class AdminController extends Controller
          // $role = Role::findById(3);
          // $permission = Permission::findById(3);
          // $role->givePermissionTo($permission);
-        $title = 'Real Estate';
-        return view ('dashboard.publisher',compact('title'));
+        $title = 'Real Estate Dashboard';
+        $allp = Property::count();
+        return view ('dashboard.publisher',compact('title','allp'));
     }
 
     /**
