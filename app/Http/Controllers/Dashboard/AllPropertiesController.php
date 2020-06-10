@@ -63,7 +63,7 @@ class AllPropertiesController extends Controller
         $post->apartmenttype()->attach($request->apartmenttype);
         $post->location()->attach($request->location);
 
-        $this->storeImage($post);
+        $this->storeFeaturedImage($post);
         
 
         return redirect('/dashboard/all-properties')->with('success', 'Updated');
@@ -118,12 +118,19 @@ class AllPropertiesController extends Controller
     {
         $property = Property::findorFail($id);
 
+        $user = auth()->user();
+        $oldPicture = $user->featured_image; 
+
         $property->title = $request->input('title');
         $property->description = $request->input('description');
         $property->price = $request->input('price');
 
         $property->update($request->all());
 
+        Storage::disk('local')->delete($oldPicture);
+
+        $this->storeFeaturedImage($property);
+        
         return redirect('/dashboard/all-properties');
     }
 
@@ -166,8 +173,9 @@ class AllPropertiesController extends Controller
         return redirect('/dashboard/properties-bin')->with('status', 'Deleted');
     }
 
-    private function storeImage($post)
+    private function storeFeaturedImage($post)
     {
+        
         if (request()->has('featured_image')){
 
             $original = request()->file('featured_image')->getClientOriginalName();
@@ -177,6 +185,8 @@ class AllPropertiesController extends Controller
             ]);
 
             $image = Image::make(public_path('image/'. $post->featured_image))->resize(362, 240);
+            
+            
             $image->save();
         }
     }

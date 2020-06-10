@@ -38,7 +38,7 @@
   	<div class="col-md-12">
 		<div class="card">
 		  <div class="card-header">
-		    <h4 class="card-title"> All Property Type
+		    <h4 class="card-title"> All Property Location
 				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">ADD</button>	
 		    </h4>
 		  </div>

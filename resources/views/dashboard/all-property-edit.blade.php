@@ -11,7 +11,7 @@ Edit Post Page | MonstaJamss
 		<div class="col-md-12">
 			<div class="card">
 				<div class="card header">
-					<h4>Edit Posts.</h4>
+					<h4>Edit Property Post.</h4>
 					@if (session('status'))
 					<div class="alert alert-success" role="alert">
 						{{ session('status') }}
@@ -73,7 +73,7 @@ Edit Post Page | MonstaJamss
 			  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
 				  <br>
 				  <div style="display:flex;">
-				  	<input type="file" class="form-control" name="featured_image"> <img src="{{ asset('https://monstajams-laravel.s3.eu-west-2.amazonaws.com/' . $property->featured_image ) }}" alt="" style="width:44px; height:27px; margin-left:-60px; margin-top:3px;">
+				  	<input type="file" class="form-control" name="featured_image"> <img src="{{ asset('image/' . $property->featured_image ) }}" alt="" style="width:44px; height:27px; margin-left:-60px; margin-top:3px;">
 				  </div>
 			  </div>
 			  <br>
