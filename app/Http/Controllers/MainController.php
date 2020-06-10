@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\User;
+use App\Property;
 
 class MainController extends Controller
 {
@@ -15,7 +17,9 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view ('pages.welcome');
+        $title = "Welcome to Real Estate";
+        $property = Property::latest()->paginate(6);
+        return view ('pages.welcome', compact('property','title'));
     }
 
     /**

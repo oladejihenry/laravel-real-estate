@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 //Admin Pages
 
+Route::group(['middleware' => 'auth'], function () {
+
 //All Properties
 Route::get('/dashboard/all-properties', 'Dashboard\AllPropertiesController@index')->middleware('auth');
 Route::post('/adminsave-property', 'Dashboard\AllPropertiesController@store');
@@ -35,6 +37,14 @@ Route::put('role-property-category-update/{id}', 'Dashboard\CategoryController@u
 //Property Location
 Route::get('/dashboard/property-location', 'Dashboard\PropertyLocationController@index');
 Route::post('/save-location', 'Dashboard\PropertyLocationController@store');
+
+
+
+//User Profile
+Route::get('/dashboard/profile', 'Dashboard\ProfileController@index');
+Route::put('profile', ['as' => 'profile.update', 'uses' => 'Dashboard\ProfileController@update']);
+Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'Dashboard\ProfileController@password']);
+});
 
 // Front End Route
 Route::get('/', 'MainController@index')->name('main');
@@ -57,4 +67,9 @@ Route::get('/create', 'Dashboard\AllPropertiesController@create')->name('posts.c
 
 //Show Posts
 Route::get('/{post}', 'AllPropertiesController@show')->name('posts.show');
+
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+
 

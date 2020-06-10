@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Main Site Page</title>
-</head>
-<body>
+@include('partials._head')
+
+@include('partials._nav')
+
+@include('partials._slider')
+
 @yield('body')
-</body>
-</html>
+
+@include('partials._footer')

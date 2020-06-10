@@ -105,7 +105,7 @@ Edit Post Page | MonstaJamss
 				  </div>
 			</div>
 							  	<button type="submit" class="btn btn-success">Update</button>
-							  	<a href="/all-properties" class="btn btn-danger">Cancel</a>
+							  	<a href="/dashboard/all-properties" class="btn btn-danger">Cancel</a>
 							</form>
 						</div>
 					</div>

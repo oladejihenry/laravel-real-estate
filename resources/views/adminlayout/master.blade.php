@@ -67,91 +67,53 @@
               <p>Dashboard</p>
             </a>
           </li>
-          
-          <li class="{{ 'dashboard/all-properties' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/dashboard/all-properties">
+          <li>
+          <a data-toggle="collapse" href="#laravelExamples" aria-expanded="false" class="collapsed">
               <i class="now-ui-icons education_atom"></i>
-              <p>All Properties</p>
-            </a>
-          </li>
-          
-          <li class="{{ 'dashboard/properties-bin' == request()->path() ? 'active' : ''}} dropdown">
-            <a href="/dashboard/properties-bin">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Properties Bin</p>
-            </a>
-          </li>
+            <p>
+              All Properties
+              <b class="caret"></b>
+            </p>
+          </a>
+          <div class="collapse" id="laravelExamples">
+            <ul class="nav">
+              <li class="{{ 'dashboard/all-properties' == request()->path() ? 'active' : ''}}">
+                <a href="/dashboard/all-properties">
+                  <i class="fa fa-tasks"></i>
+                  <p> All Properties </p>
+                </a>
+              </li>
+              <li class="{{ 'create' == request()->path() ? 'active' : ''}} dropdown">
+                <a href="/create">
+                  <i class="fa fa-plus"></i>
+                  <p> Create Property </p>
+                </a>
+              </li>
+              <li class="{{ 'dashboard/properties-bin' == request()->path() ? 'active' : ''}} dropdown">
+                <a href="/dashboard/properties-bin">
+                  <i class="fa fa-trash"></i>
+                  <p> Properties Bin </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+      </li>
           <li class="{{ 'dashboard/property-location' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/dashboard/property-location">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Properties Location</p>
+              <i class="fa fa-map-marker"></i>
+              <p> Add Properties Location</p>
             </a>
           </li>
           @role('landlord')
           <li class="{{ 'dashboard/property-category' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/dashboard/property-category">
-              <i class="now-ui-icons education_atom"></i>
+              <i class="fa fa-tag"></i>
               <p>Add Property Category</p>
             </a>
           </li>
-          @endrole
-          <li class="{{ 'new-tags' == request()->path() ? 'active' : ''}}">
-            <a href="/new-tags">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Tags</p>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="now-ui-icons location_map-big"></i>
-            Posts Categories
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a href="/all-music">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Music</p>
-            </a>
-            <a href="/all-video">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Video</p>
-            </a>
-            <a href="/all-news">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>News</p>
-            </a>
-            <a href="/all-reviews">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Reviews</p>
-            </a>
-            </div>
-          </li>
-           <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="now-ui-icons location_map-big"></i>
-            Pages
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-           <a href="/new-about">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>About Us</p>
-            </a>
-            <a href="/new-privacy">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Privacy Policy</p>
-            </a>
-            <a href="/new-copyright">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Copyright Info</p>
-            </a>
-            <a href="/new-tos">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Tos</p>
-            </a>
-          </div>
-        </li>
-        
-          <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}">
-            <a href="/role-register">
+          @endrole    
+          <li class="{{ 'dashboard/profile' == request()->path() ? 'active' : ''}}">
+            <a href="/dashboard/profile">
               <i class="now-ui-icons users_single-02"></i>
               <p>User Profiles</p>
             </a>

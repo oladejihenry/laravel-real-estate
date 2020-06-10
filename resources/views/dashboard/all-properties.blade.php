@@ -35,7 +35,7 @@ $id = '1';
 		<div class="card">
 		  <div class="card-header">
 		    <h4 class="card-title"> All Properties ( {{$allp}} )
-				<a href="{{route('posts.create')}}" class="btn btn-success float-right">Add Post</a>
+				<a href="{{route('posts.create')}}" class="btn btn-success float-right">Add Property</a>
 		    </h4>
 		  </div>
 		  	<div class="card-body">
@@ -59,7 +59,7 @@ $id = '1';
 						<td>Published<br>{{ $properties->created_at->format('m/d/Y') }}</td>
 			            <td>{{$properties->user->username}}</td>
 			            <td>{{ $properties->location()->first()->city }}</td>
-			            <td>{{number_format($properties->price, 2, '.', ',')}}</td>
+			            <td>₦{{number_format($properties->price, 2, '.', ',')}}</td>
 
 			            <td>
 			            	@if(Auth()->check())

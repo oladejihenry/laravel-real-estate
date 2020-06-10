@@ -10,6 +10,9 @@ use App\User;
 use App\Location;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use Storage;
+use Carbon\Carbon;
+use Image;
 
 class AllPropertiesController extends Controller
 {
@@ -59,6 +62,8 @@ class AllPropertiesController extends Controller
         $post=auth()->user()->property()->create($request->all());
         $post->apartmenttype()->attach($request->apartmenttype);
         $post->location()->attach($request->location);
+
+        $this->storeImage($post);
         
 
         return redirect('/dashboard/all-properties')->with('success', 'Updated');
@@ -159,5 +164,21 @@ class AllPropertiesController extends Controller
         $property->forceDelete();
 
         return redirect('/dashboard/all-properties')->with('status', 'Deleted');
+    }
+
+    private function storeImage($post)
+    {
+        if (request()->hasFile('featured_image')){
+
+            $original = request()->file('featured_image')->getClientOriginalName();
+
+            $post->update([
+                'featured_image' => request()->file('featured_image')->storeAs('uploads', $original),
+            ]);
+
+            $image = Image::make(request()->file('featured_image'));
+            Storage::disk('public')->put('uploads', $image->stream(), 'public');
+            
+        }
     }
 }

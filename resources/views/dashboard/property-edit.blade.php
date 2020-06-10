@@ -30,7 +30,7 @@ Edit Category Users | MonstaJamss
 								    <input type="text" name="name" value="{{ $apartmenttype->name }}" class="form-control">
 							  	</div>
 							  	<button type="submit" class="btn btn-success">Update</button>
-							  	<a href="/all-category" class="btn btn-danger">Cancel</a>
+							  	<a href="/dashboard/property-category" class="btn btn-danger">Cancel</a>
 							</form>
 						</div>
 					</div>

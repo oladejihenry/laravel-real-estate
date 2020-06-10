@@ -94,6 +94,7 @@
 				<div>
 				  <label><b>Price:</b></label>
                   <br>
+				  <input type="text" value="₦" disabled style="width:20px;">
 				  <input type="text" name="price" value="0.00">
 			</div>
 				<br>
