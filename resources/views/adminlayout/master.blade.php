@@ -98,6 +98,12 @@
             </ul>
           </div>
       </li>
+      <li class="{{ 'dashboard/property-type' == request()->path() ? 'active' : ''}} dropdown">
+            <a href="/dashboard/property-type">
+              <i class="fa fa-home"></i>
+              <p> Add Property Type</p>
+            </a>
+          </li>
           <li class="{{ 'dashboard/property-location' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/dashboard/property-location">
               <i class="fa fa-map-marker"></i>

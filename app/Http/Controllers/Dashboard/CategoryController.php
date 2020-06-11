@@ -32,7 +32,7 @@ class CategoryController extends Controller
         $apartmenttype->name = $request->input('name');
 
         $apartmenttype->save();
-        return redirect('/property-category');
+        return redirect('/dashboard/property-category');
     }
 
     /**
@@ -61,7 +61,7 @@ class CategoryController extends Controller
         $apartmenttype->name = $request->input('name');
         $apartmenttype->update();
 
-        return redirect('/property-category')->with('status', 'Updated');
+        return redirect('/dashboard/property-category')->with('status', 'Updated');
     }
 
     /**
@@ -72,9 +72,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $apartmenttype = ApartmentType::findorFail($id);
+        $apartmenttype = Category::findorFail($id);
         $apartmenttype->delete();
 
-        return redirect('/property-category')->with('status', 'Deleted');
+        return redirect('/dashboard/property-category')->with('status', 'Deleted');
     }
 }

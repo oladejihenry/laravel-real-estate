@@ -16,9 +16,9 @@
                 <div class="col-xl-4 col-md-6 col-lg-4">
                     <div class="single_property">
                         <div class="property_thumb">
-                            <!-- <div class="property_tag">
-                                    For Sale
-                            </div> -->
+                             <div class="property_tag">
+                             {{ $properties->type()->first()->name }}
+                            </div> 
                             <img src="{{ asset('image/' . $properties->featured_image ) }}" alt="">
                         </div>
                         <div class="property_content">
@@ -40,19 +40,19 @@
                                 <ul>
                                     <li>
                                         <div class="single_info_doc">
-                                            <img src="img/svg_icon/square.svg" alt="">
+                                            <img src="{{asset('front-css/img/svg_icon/square.svg')}}" alt="">
                                             <span>1200 Sqft</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="single_info_doc">
-                                            <img src="img/svg_icon/bed.svg" alt="">
+                                            <img src="{{asset('front-css/img/svg_icon/bed.svg')}}" alt="">
                                             <span>2 Bed</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="single_info_doc">
-                                            <img src="img/svg_icon/bath.svg" alt="">
+                                            <img src="{{asset('front-css/img/svg_icon/bath.svg')}}" alt="">
                                             <span>2 Bath</span>
                                         </div>
                                     </li>

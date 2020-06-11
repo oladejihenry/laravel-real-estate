@@ -6,6 +6,7 @@ use App\User;
 use App\ApartmentType;
 use App\Category;
 use App\Location;
+use App\Type;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -38,6 +39,11 @@ class Property extends Model
     public function location()
     {
         return $this->belongsToMany(Location::class, 'locations_properties');
+    }
+
+    public function type()
+    {
+        return $this->belongsToMany(Type::class, 'properties_types');
     }
 
     public function sluggable()

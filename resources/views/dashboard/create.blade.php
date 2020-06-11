@@ -29,14 +29,14 @@
 	          </div>
 	          <br>
 	          <div class="form-group">
-	          	<label for="recipient-name" class="col-form-label"><b>Property Type:</b></label>
+	          	<label for="recipient-name" class="col-form-label"><b>Property Category:</b></label>
 	          	<br>
 	          	<select class="form-control" id="apartmenttype" name="apartmenttype[]" id="main-tags" multiple="multiple" style="width:223.438px;">
   					@foreach($apartmenttype as $apartmenttypes)
               		<option value="{{$apartmenttypes->id}}">{{$apartmenttypes->name}}</option>
               		...
              		@endforeach
-				</select> <b style="color:red;">Note: Please Select Only (One) Property Type.</b>
+				</select> <b style="color:red;">Note: Please Select Only (One) Property Category.</b>
 	          </div>
 	          <br>
 	          <div class="form-group">
@@ -49,6 +49,18 @@
               		@endforeach
              		
 				</select> <b style="color:red;">Note: Please Select Only (One) Location.</b>
+			  </div>
+			  <br>
+			  <div class="form-group">
+	          	<label for="recipient-name" class="col-form-label"><b>Property Type:</b></label>
+	          	<br>
+	          	<select class="form-control" id="type" name="type[]" id="main-tags" multiple="multiple" style="width:223.438px;">
+  					@foreach($type as $types)
+              		<option value="{{$types->id}}">{{$types->name}}</option>
+              		...
+              		@endforeach
+             		
+				</select> <b style="color:red;">Note: Please Select Only (One) Property Type.</b>
 	          </div>
 	          <br>
 	          <br>
@@ -136,6 +148,7 @@
   $(document).ready(function() {
     $('#apartmenttype').select2();
     $('#location').select2();
+	$('#type').select2();
 });
 </script>
 

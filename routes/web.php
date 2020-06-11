@@ -27,12 +27,19 @@ Route::get('/dashboard/properties-bin', 'Dashboard\AllPropertiesController@trash
 Route::get('/restore/{id}', 'Dashboard\AllPropertiesController@restore')->name('posts.restore');
 Route::delete('adminproperties-bin/{id}','Dashboard\AllPropertiesController@delete');
 
-//Apartment Type
+//Property Category
 Route::get('/dashboard/property-category', 'Dashboard\CategoryController@index')->middleware('role:landlord');
 Route::post('/save-property-category', 'Dashboard\CategoryController@store');
 Route::get('/role-propertyedit/{id}', 'Dashboard\CategoryController@edit');
 Route::delete('/property-delete/{id}', 'Dashboard\CategoryController@destroy');
 Route::put('role-property-category-update/{id}', 'Dashboard\CategoryController@update');
+
+//Property Type
+Route::get('/dashboard/property-type', 'Dashboard\TypeController@index');
+Route::post('/save-property-type', 'Dashboard\TypeController@store');
+Route::get('/role-typenedit/{id}', 'Dashboard\TypeController@edit');
+Route::put('/role-property-type-update/{id}', 'Dashboard\TypeController@update');
+Route::delete('/type-delete/{id}','Dashboard\TypeController@destroy');
 
 //Property Location
 Route::get('/dashboard/property-location', 'Dashboard\PropertyLocationController@index');

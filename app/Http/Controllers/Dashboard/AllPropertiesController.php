@@ -8,6 +8,7 @@ use App\Property;
 use App\Category;
 use App\User;
 use App\Location;
+use App\Type;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 use Storage;
@@ -40,8 +41,9 @@ class AllPropertiesController extends Controller
     {
         $apartmenttype = Category::all();
         $location = Location::all();
+        $type = Type::all();
         $title = "Create New Property";
-        return view('dashboard.create', compact('title'))->with(['apartmenttype'=>$apartmenttype,'location'=>$location]);
+        return view('dashboard.create', compact('title'))->with(['apartmenttype'=>$apartmenttype,'location'=>$location, 'type'=>$type]);
     }
 
     /**
@@ -55,13 +57,15 @@ class AllPropertiesController extends Controller
         $this->validate($request,[
             'title'=>'required|min:10',
             'description' => 'required|min:20',
-            'apartmenttype' => 'required'
+            'apartmenttype' => 'required',
+            'type' => 'required'
 
         ]);
 
         $post=auth()->user()->property()->create($request->all());
         $post->apartmenttype()->attach($request->apartmenttype);
         $post->location()->attach($request->location);
+        $post->type()->attach($request->type);
 
         $this->storeFeaturedImage($post);
         

@@ -43,7 +43,7 @@ class PropertyLocationController extends Controller
         $location->state = $request->input('state');
 
         $location->save();
-        return redirect('/property-location');
+        return redirect('/dashboard/property-location');
     }
 
     /**
