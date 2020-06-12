@@ -1,0 +1,8 @@
+.nav-dash{
+    display:none !important;
+}
+@media (max-width: 767px){
+    .nav-dash{
+        display:block !important;
+    }
+}

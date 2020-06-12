@@ -28,9 +28,29 @@ Edit Post Page | MonstaJamss
 								{{ method_field('PUT') }}
 
 								<div class="form-group">
-								    <label>Name</label>
+								    <label>Title</label>
 								    <input type="text" name="title" value="{{ $property->title }}" class="form-control">
-							  	</div>
+								  </div>
+								  <br>
+								  <div class="form-row">
+										<div class="form-group col-md-2">
+											<label for="inputCity"><b>Numbers of Beds:</b></label>
+											<input type="text" name="bed_space" value="{{$property->bed_space}}" class="form-control">
+										</div>
+										<div class="form-group col-md-2">
+											<label for="inputState"><b>Numbers of Toilets:</b></label>
+											<input type="text" name="toilet" value="{{$property->toilet}}" class="form-control" >
+										</div>
+										<div class="form-group col-md-2">
+											<label for="inputZip"><b>Square Feet:</b></label>
+											<input type="text" name="sqft" value="{{$property->sqft}}" class="form-control">
+										</div>
+										<div class="form-group col-md-2">
+											<label for="inputZip"><b>Numbers of Bathroom:</b></label>
+											<input type="text" name="bathroom" value="{{$property->bathroom}}" class="form-control">
+										</div>
+									</div>
+									<br>
 							  	<div class="form-group">
 								    <label>Description</label>
 								    <textarea type="text" name="description" value="" class="editor">{{ $property->description }}</textarea>

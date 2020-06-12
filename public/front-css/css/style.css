@@ -3176,6 +3176,8 @@ h3 {
 .popular_property .single_property .property_content .buy {
   display: inline-block;
   background: #00D363;
+  cursor:pointer;
+  border:none;
   border-radius: 30px;
   padding: 7px 18px;
   color: #fff;
@@ -3183,6 +3185,7 @@ h3 {
   font-size: 13px;
   margin-top: 13px;
   float: right;
+  text-decoration: none;
 }
 
 /* line 87, ../../Arafath/CL/CL October/217. Real Estate/HTML/scss/_popular_property.scss */

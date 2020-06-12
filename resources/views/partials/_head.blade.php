@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{asset('front-css/css/animate.css')}}">
     <link rel="stylesheet" href="{{asset('front-css/css/slick.css')}}">
     <link rel="stylesheet" href="{{asset('front-css/css/slicknav.css')}}">
+    <link rel="stylesheet" href="{{asset('front-css/css/resp.css')}}">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <link rel="stylesheet" href="{{asset('front-css/css/style.css')}}">

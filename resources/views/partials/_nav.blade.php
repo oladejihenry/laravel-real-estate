@@ -65,6 +65,20 @@
                                                 </ul>
                                             </li>
                                             <li><a href="contact.html">Contact</a></li>
+                                            @guest
+                                                <li><a href="/login">Log In</a></li>
+                                            @endguest
+                                            @auth
+                                                <li class="nav-dash"><a href="/dashboard">Dashboard</a></li>
+                                                <li class="nav-dash">
+                                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">{{ __('Logout') }}
+                                                    </a>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                </li>
+                                            @endauth
                                         </ul>
                                     </nav>
                                 </div>
@@ -76,9 +90,24 @@
                                             <i class="ti-search"></i>
                                         </a>
                                     </div>
+                                    @guest
                                     <div class="book_btn d-none d-lg-block">
-                                        <a  href="/dashboard">Add Property</a>
+                                        <a  href="/login">Login</a>
                                     </div>
+                                    @endguest
+                                    @auth
+                                    <div class="book_btn d-none d-lg-block">
+                                        <a  href="/dashboard">Dashboard</a>
+                                    </div>
+                                    <div class="book_btn d-none d-lg-block" style="margin-left:10px;">
+                                        <a  href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                    @endauth
+
                                 </div>
                             </div>
                             <div class="col-12">

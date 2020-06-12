@@ -98,18 +98,22 @@
             </ul>
           </div>
       </li>
+      @role('landlord')
       <li class="{{ 'dashboard/property-type' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/dashboard/property-type">
               <i class="fa fa-home"></i>
               <p> Add Property Type</p>
             </a>
           </li>
+          @endrole
+          @role('landlord')
           <li class="{{ 'dashboard/property-location' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/dashboard/property-location">
               <i class="fa fa-map-marker"></i>
               <p> Add Properties Location</p>
             </a>
           </li>
+          @endrole
           @role('landlord')
           <li class="{{ 'dashboard/property-category' == request()->path() ? 'active' : ''}} dropdown">
             <a href="/dashboard/property-category">

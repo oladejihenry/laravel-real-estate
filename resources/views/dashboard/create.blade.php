@@ -61,7 +61,26 @@
               		@endforeach
              		
 				</select> <b style="color:red;">Note: Please Select Only (One) Property Type.</b>
-	          </div>
+			  </div>
+			  <br>
+			  <div class="form-row">
+				<div class="form-group col-md-2">
+					<label for="inputCity"><b>Numbers of Beds:</b></label>
+					<input type="text" name="bed_space" class="form-control">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputState"><b>Numbers of Toilets:</b></label>
+					<input type="text" name="toilet" class="form-control" >
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputZip"><b>Square Feet:</b></label>
+					<input type="text" name="sqft" class="form-control">
+				</div>
+				<div class="form-group col-md-2">
+					<label for="inputZip"><b>Numbers of Bathroom:</b></label>
+					<input type="text" name="bathroom" class="form-control">
+				</div>
+        	</div>
 	          <br>
 	          <br>
 	          <div class="form-group">

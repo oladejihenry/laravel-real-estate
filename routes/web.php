@@ -73,10 +73,22 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 Route::get('/create', 'Dashboard\AllPropertiesController@create')->name('posts.create')->middleware('auth');
 
 //Show Posts
-Route::get('/{post}', 'AllPropertiesController@show')->name('posts.show');
+Route::get('/{post}', 'ShowPropertiesController@index')->name('posts.show');
+
+//Show All Single Properties
+Route::get('/{category:name}/{property:slug}','PropertyController@show')->name('categories.show');
+
+//Category
+
 
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+//Payment
+Route::post('/pay', 'PaymentController@redirectToGateway')->name('pay')->middleware('auth');
+
+//Payment Callback
+Route::get('/payment/callback', 'PaymentController@handleGatewayCallback');
 
 
 

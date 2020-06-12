@@ -24,6 +24,12 @@ class CreatePropertiesTable extends Migration
             $table->string('fourth_image');
             $table->string('slug');
             $table->decimal('price',9,3);
+            $table->tinyInteger('bathroom')->nullable();
+            $table->tinyInteger('bed_space')->nullable();
+            $table->tinyInteger('sqft')->nullable();
+            $table->tinyInteger('toilet')->nullable();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps('deleted_at');
             $table->timestamps();
         });
