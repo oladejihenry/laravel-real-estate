@@ -21,7 +21,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        // $role = Role::create(['name' => 'tenant']);
+        $role = Role::create(['name' => 'agent']);
         // $permission = Permission::create(['name' => 'buy property']);
          // $role = Role::findById(3);
          // $permission = Permission::findById(3);
