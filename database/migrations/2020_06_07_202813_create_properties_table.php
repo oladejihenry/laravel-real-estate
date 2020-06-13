@@ -30,7 +30,7 @@ class CreatePropertiesTable extends Migration
             $table->tinyInteger('toilet')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps('deleted_at');
+            $table->softDeletes('deleted_at',0);
             $table->timestamps();
         });
     }

@@ -73,7 +73,7 @@ Route::get('/dashboard', 'AdminController@index')->name('dashboard');
 Route::get('/create', 'Dashboard\AllPropertiesController@create')->name('posts.create')->middleware('auth');
 
 //Show Posts
-Route::get('/{post}', 'ShowPropertiesController@index')->name('posts.show');
+Route::get('/{post}', 'PropertyController@index')->name('posts.show');
 
 //Show All Single Properties
 Route::get('/{category:name}/{property:slug}','PropertyController@show')->name('categories.show');
