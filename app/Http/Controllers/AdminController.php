@@ -23,9 +23,9 @@ class AdminController extends Controller
     {
         //$role = Role::create(['name' => 'agent']);
         //$permission = Permission::create(['name' => 'add property']);
-          $role = Role::findById(2);
-          $permission = Permission::findById(1);
-         $role->givePermissionTo($permission);
+          //$role = Role::findById(2);
+          //$permission = Permission::findById(1);
+         //$role->givePermissionTo($permission);
         $title = 'Real Estate Dashboard';
         $allp = Property::count();
         return view ('dashboard.publisher',compact('title','allp'));
