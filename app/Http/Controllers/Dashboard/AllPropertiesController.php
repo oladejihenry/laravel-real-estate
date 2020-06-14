@@ -191,6 +191,7 @@ class AllPropertiesController extends Controller
             $image = Image::make(request()->file('featured_image'));
             Storage::disk('s3')->put('uploads', $image->stream(), 'public');
             $image = Storage::disk('s3')->temporaryUrl("uploads", Carbon::now()->addMinutes(5));
+            $image = 'http://localhost:8000/images/';
             
             
             
