@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 's3'),
 
     /*
     |--------------------------------------------------------------------------
@@ -46,6 +46,11 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => public_path('image/'),
+        ],
+
+        'dropbox'=>[
+            'driver' => 'dropbox',
+            'token' => env('DROPBOX_TOKEN'),
         ],
 
         'public' => [

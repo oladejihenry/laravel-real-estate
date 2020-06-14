@@ -188,10 +188,12 @@ class AllPropertiesController extends Controller
                 'featured_image' => request()->file('featured_image')->storeAs('uploads', $original),
             ]);
 
-            $image = Image::make(public_path('image/'. $post->featured_image))->resize(362, 240);
+            $image = Image::make(request()->file('featured_image'));
+            Storage::disk('s3')->put('uploads', $image->stream(), 'public');
+            $image = Storage::disk('s3')->temporaryUrl("uploads", Carbon::now()->addMinutes(5));
             
             
-            $image->save();
+            
         }
     }
 }

@@ -19,7 +19,7 @@
                              <div class="property_tag">
                              {{ $properties->type()->first()->name }}
                             </div> 
-                            
+                            <img src="{{ asset('image/' . $properties->featured_image ) }}" alt="">
                         </div>
                         <div class="property_content">
                             <div class="main_pro">

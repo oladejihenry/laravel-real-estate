@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Unicodeveloper\Paystack\PaystackServiceProvider::class,
+        BC\Laravel\DropboxDriver\ServiceProvider::class,
 
         /*
          * Package Service Providers...
