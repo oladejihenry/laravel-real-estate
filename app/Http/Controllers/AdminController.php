@@ -21,11 +21,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $role = Role::create(['name' => 'agent']);
-        // $permission = Permission::create(['name' => 'buy property']);
-         // $role = Role::findById(3);
-         // $permission = Permission::findById(3);
-         // $role->givePermissionTo($permission);
+        //$role = Role::create(['name' => 'agent']);
+        //$permission = Permission::create(['name' => 'add property']);
+          $role = Role::findById(2);
+          $permission = Permission::findById(1);
+         $role->givePermissionTo($permission);
         $title = 'Real Estate Dashboard';
         $allp = Property::count();
         return view ('dashboard.publisher',compact('title','allp'));
