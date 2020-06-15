@@ -30,7 +30,7 @@
                                                                 </select>
                                                             </div>
                                                             <div class="single_field range_slider">
-                                                                    <label for="#">Price ($)</label>
+                                                                    <label for="#">Price (₦)</label>
                                                                 <div id="slider"></div>
                                                             </div>
                                                         <div class="single-field min_width ">
