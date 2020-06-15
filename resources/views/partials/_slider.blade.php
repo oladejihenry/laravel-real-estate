@@ -15,13 +15,13 @@
                                                 <div class="form_wrap d-flex">
                                                         <div class="single-field max_width ">
                                                                 <label for="#">Location</label>
-                                                                @foreach()
+                                                                
                                                                 <select class="wide" >
                                                                         <option data-display="NewYork">Abuja</option>
                                                                         <option value="1">Lagos</option>
                                                                         <option value="2">Ibadan</option>
                                                                 </select>
-                                                                @endforeach
+                                                              
                                                             </div>
                                                         <div class="single-field max_width ">
                                                                 <label for="#">Property type</label>
