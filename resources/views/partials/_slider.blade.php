@@ -15,18 +15,20 @@
                                                 <div class="form_wrap d-flex">
                                                         <div class="single-field max_width ">
                                                                 <label for="#">Location</label>
+                                                                @foreach()
                                                                 <select class="wide" >
-                                                                        <option data-display="NewYork">NewYork</option>
-                                                                        <option value="1">Bangladesh</option>
-                                                                        <option value="2">India</option>
+                                                                        <option data-display="NewYork">Abuja</option>
+                                                                        <option value="1">Lagos</option>
+                                                                        <option value="2">Ibadan</option>
                                                                 </select>
+                                                                @endforeach
                                                             </div>
                                                         <div class="single-field max_width ">
                                                                 <label for="#">Property type</label>
                                                                 <select class="wide" >
                                                                         <option data-display="Apartment">Apartment</option>
-                                                                        <option value="1">Apartment</option>
-                                                                        <option value="2">Apartment</option>
+                                                                        <option value="1">Flat</option>
+                                                                        <option value="2">Duplex</option>
                                                                 </select>
                                                             </div>
                                                             <div class="single_field range_slider">
