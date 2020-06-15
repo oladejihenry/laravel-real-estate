@@ -17,7 +17,7 @@
                                                                 <label for="#">Location</label>
                                                                 
                                                                 <select class="wide" >
-                                                                        <option data-display="NewYork">Abuja</option>
+                                                                        <option data-display="Abuja">Abuja</option>
                                                                         <option value="1">Lagos</option>
                                                                         <option value="2">Ibadan</option>
                                                                 </select>
