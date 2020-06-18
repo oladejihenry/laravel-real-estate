@@ -8,7 +8,7 @@
                                     <p> <img src="img/svg_icon/location.svg" alt=""> 200/A, Greenland, Texaro, USA</p>
                                     <div class="quality_quantity d-flex">
                                         <div class="single_quantity">
-                                            <img src="img/svg_icon/color_box.svg" alt="">
+                                            <img src="{{asset('front/css/img/svg_icon/color_box.svg')}}" alt="">
                                             <span>{{$property->sqft}} Sqft</span>
                                         </div>
                                         <div class="single_quantity">
@@ -17,14 +17,14 @@
                                         </div>
                                         <div class="single_quantity">
                                             <img src="img/svg_icon/color_bath.svg" alt="">
-                                            <span>2 Bath</span>
+                                            <span>{{$property->toilet}} Bath</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-md-4 col-lg-6">
                                 <div class="prise_quantity">
-                                    <h4>$4567</h4>
+                                    <h4>₦ {{number_format($properties->price,2,'.',',')}}</h4>
                                     <a href="#">+10 367 457 735</a>
                                 </div>
                             </div>
