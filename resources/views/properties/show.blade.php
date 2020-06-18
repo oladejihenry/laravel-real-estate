@@ -8,7 +8,7 @@
                     <div class="property_banner">
                         <div class="property_banner_active owl-carousel">
                             <div class="single_property">
-                                <img src="{{ asset('https://monstajams-laravel.s3.eu-west-2.amazonaws.com/' . $properties->featured_image ) }}" alt="">
+                                <img src="{{ asset('https://monstajams-laravel.s3.eu-west-2.amazonaws.com/' . $property->featured_image ) }}" alt="">
                             </div>
                             <div class="single_property">
                                 <img src="img/banner/property_details.png" alt="">
