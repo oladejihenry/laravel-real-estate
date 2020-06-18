@@ -8,7 +8,7 @@
                                     <p> <img src="img/svg_icon/location.svg" alt=""> 200/A, Greenland, Texaro, USA</p>
                                     <div class="quality_quantity d-flex">
                                         <div class="single_quantity">
-                                            <img src="{{asset('front/css/img/svg_icon/color_box.svg')}}" alt="">
+                                            <img src="{{asset('front-css/img/svg_icon/color_box.svg')}}" alt="">
                                             <span>{{$property->sqft}} Sqft</span>
                                         </div>
                                         <div class="single_quantity">
