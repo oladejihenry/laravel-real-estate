@@ -46,7 +46,7 @@
                                         <input type="hidden" name="email" value="">
                                         <input type="hidden" name="">
                                         <input type="hidden" name="orderID" value="{{$properties->id}}">
-                                        <input type="hidden" name="amount" value="{{number_format($properties->price,2,'.',',')}}">
+                                        <input type="hidden" name="amount" value="{{$properties->price}}">
                                         <!-- 150000000 -->
                                         <input type="hidden" name="quantity" value="1">
                                         <input type="hidden" name="currency" value="NGN">
@@ -73,7 +73,7 @@
                                             </p> -->
                                         <input type="hidden" name="email" value="{{Auth::user()->email}}">
                                         <input type="hidden" name="orderID" value="{{$properties->id}}">
-                                        <input type="hidden" name="amount" value="{{number_format($properties->price,2,'.',',')}}">
+                                        <input type="hidden" name="amount" value="{{$properties->price}}">
                                         <!-- 150000000 -->
                                         <input type="hidden" name="quantity" value="1">
                                         <input type="hidden" name="currency" value="NGN">
