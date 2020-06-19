@@ -54,7 +54,7 @@
                                             <li><a href="contact.html">Contact</a></li>
                                             <li><a href="/about-us">About Us</a></li>
                                             @guest
-                                                <li><a href="/login">Log In</a></li>
+                                                <li class="nav-dash"><a href="/login">Log In</a></li>
                                             @endguest
                                             @auth
                                                 <li class="nav-dash"><a href="/dashboard">Dashboard</a></li>
