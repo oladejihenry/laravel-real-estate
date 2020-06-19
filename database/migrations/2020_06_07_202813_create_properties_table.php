@@ -23,7 +23,7 @@ class CreatePropertiesTable extends Migration
             $table->string('third_image');
             $table->string('fourth_image');
             $table->string('slug');
-            $table->decimal('price',9,3);
+            $table->decimal('price',11,2);
             $table->bigInteger('phone_number')->nullable();
             $table->bigInteger('bathroom')->nullable();
             $table->bigInteger('bed_space')->nullable();
