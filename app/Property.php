@@ -19,7 +19,7 @@ class Property extends Model
 
     protected $dates = ['deleted_at'];
     protected $table= 'properties';
-    protected $fillable=['title','description','featured_image','first_image','second_image','third_image','fourth_image','price','bathroom','bed_space','sqft','toilet'];
+    protected $fillable=['title','description','featured_image','first_image','second_image','third_image','fourth_image','price','phone_number','bathroom','bed_space','sqft','toilet'];
 
     public function user()
     {

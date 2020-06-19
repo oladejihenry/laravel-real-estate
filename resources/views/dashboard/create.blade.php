@@ -129,6 +129,12 @@
 				  <input type="text" name="price" value="0.00">
 			</div>
 				<br>
+				<div>
+					<label><b>Phone Number:</b></label>
+					<br>
+					<input type="tel" name="phone_number">
+				</div>
+				<br>
 			  <div>
 				  <label><b>Select Featured Image To Add:</b> (Maximum Size: <b>5MB</b>)</label>
                   <br>

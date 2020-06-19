@@ -102,6 +102,12 @@ Edit Post Page | MonstaJamss
                   <br>
 				  <input type="text" name="price" value="{{$property->price}}">
 				</div>
+				<br>
+				<div>
+					<label><b>Phone Number:</b></label>
+					<br>
+					<input type="tel" name="phone_number" value="{{$property->phone_number}}">
+				</div>
 			  <br>
 			  <br>
 	          <div>
